@@ -1,0 +1,5 @@
+name: 'Slack notify'
+description: 'Send message to slack'
+runs:
+  using: 'node12'
+  main: 'index.js'
