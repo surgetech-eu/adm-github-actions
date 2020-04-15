@@ -1,4 +1,5 @@
-const config = require('./surge-ci.json')
+
+const config = require(process.env.WORKSPACE + '/surge-ci.json')
 console.log(`::set-output name=tag::${config.tag}`)
 
 /*
