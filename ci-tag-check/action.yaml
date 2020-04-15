@@ -1,4 +1,4 @@
-name: 'CI tag protect'
+name: 'CI tag check'
 description: 'Checks that tag does not already exists in repo. Exports tag for notifier'
 runs:
   using: 'node12'
