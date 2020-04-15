@@ -1,0 +1,7 @@
+name: 'CI tag protect'
+description: 'Checks that tag does not already exists in repo. Exports tag for notifier'
+runs:
+  using: 'node12'
+  main: 'index.js'
+outputs:
+  tag: #tag we are going to build
