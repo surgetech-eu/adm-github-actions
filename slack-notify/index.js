@@ -16,7 +16,7 @@ switch (status) {
     case 'Started':
         var color = '#546E7A'
         break
-    case 'Failed':
+    case 'Failure':
         var color = '#F44336'
         break
     case 'Success':
@@ -34,8 +34,6 @@ else {
     var text = 'Status: ' + status + '\nMessage: ' + message
 }
 
-console.log("********************", subject, "***", text, "***", color)
-
 var payload = `payload='{\"channel\":\"${channel}\",
     \"username\":\"${username}\",
     \"attachments\":[{\"fallback\":\"${subject}\", \"title\":\"${subject}\", \"text\":\"${text}\", \"color\":\"${color}\"}],
@@ -44,8 +42,8 @@ var payload = `payload='{\"channel\":\"${channel}\",
 var cmd = `curl -sm 5 --data-urlencode ${payload} ${url}`
 
 exec(cmd, function(error, stdout, stderr) {
-  console.log("Out: ", stdout, "Error:", stderr);
+  console.log("Slack reply: ", stdout);
   if (error) {
-    console.log("Error: ",error.code, stderr);
+    console.log("Error: ", error.code, stderr);
   }
 });
