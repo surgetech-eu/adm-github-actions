@@ -15,7 +15,7 @@ if (config.type == 'java-lib') {
     s3.listObjectsV2(params, (err, data) => {
         const folderExists = data.Contents.length > 0;
         if (folderExists == true) {
-            console.log(`::set-output name=message::Problem: tag already exists`)
+            console.log(`::set-output name=message::tag already exists`)
             throw new Error("Problem: tag already exists");
         } else {
             console.log("Tag is new, ok to continue");
@@ -32,7 +32,7 @@ if (config.type == 'java-lib') {
         else {
             for (x in data.imageIds) {
                 if (data.imageIds[x].imageTag == config.tag) {
-                    console.log(`::set-output name=message::Problem: tag already exists`)
+                    console.log(`::set-output name=message::tag already exists`)
                     throw new Error("Problem: tag already exists");
                 }
             }
@@ -42,6 +42,6 @@ if (config.type == 'java-lib') {
 
 } else {
     // Wtf
-    console.log(`::set-output name=message::Problem: unknown artifact type`)
+    console.log(`::set-output name=message::unknown artifact type`)
     throw new Error("Problem: unknown artifact type");
 }
