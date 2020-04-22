@@ -7,14 +7,35 @@ if (url === null){
 
 var username = 'CI'
 var emoji = ':ghost:'
-var color = '#0C7BDC'
-var channel = process.env.CHANNEL || 'monitoring-all'
-var subject = process.env.SUBJECT || 'default subject'
-var message = process.env.MESSAGE || 'default message'
+var channel = process.env.CHANNEL || 'dev-ci'
+var status  = process.env.STATUS  || 'Unknown'
+var subject = process.env.SUBJECT || 'Something wrong'
+var message = process.env.MESSAGE || ''
+
+switch (status) {
+    case 'Started':
+        var color = '#546E7A'
+        break;
+    case 'Failed':
+        var color = '#F44336'
+        break;
+    case 'Success':
+        var color = '#4CAF50'
+        break;
+    default:
+        var color = '#E0E0E0'
+}
+
+if (message == '') {
+    var text = 'Status: ' + status
+}
+else {
+    var text = 'Status: ' + status + '\nMessage: ' + message
+}
 
 var payload = `payload='{\"channel\":\"${channel}\",
     \"username\":\"${username}\",
-    \"attachments\":[{\"fallback\":\"${subject}\", \"title\":\"${subject}\", \"text\":\"${message}\", \"color\":\"${color}\"}],
+    \"attachments\":[{\"fallback\":\"${subject}\", \"title\":\"${subject}\", \"text\":\"${text}\", \"color\":\"${color}\"}],
     \"icon_emoji\":\"${emoji}\"},'`
 
 var cmd = `curl -sm 5 --data-urlencode ${payload} ${url}`
