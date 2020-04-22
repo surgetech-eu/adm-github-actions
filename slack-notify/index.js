@@ -15,15 +15,16 @@ var message = process.env.MESSAGE || ''
 switch (status) {
     case 'Started':
         var color = '#546E7A'
-        break;
+        break
     case 'Failed':
         var color = '#F44336'
-        break;
+        break
     case 'Success':
         var color = '#4CAF50'
-        break;
+        break
     default:
         var color = '#E0E0E0'
+        break
 }
 
 if (message == '') {
@@ -33,7 +34,7 @@ else {
     var text = 'Status: ' + status + '\nMessage: ' + message
 }
 
-console.log("********************", subject, "***", text)
+console.log("********************", subject, "***", text, "***", color)
 
 var payload = `payload='{\"channel\":\"${channel}\",
     \"username\":\"${username}\",
@@ -43,6 +44,7 @@ var payload = `payload='{\"channel\":\"${channel}\",
 var cmd = `curl -sm 5 --data-urlencode ${payload} ${url}`
 
 exec(cmd, function(error, stdout, stderr) {
+  console.log("Out: ", stdout, "Error:", stderr);
   if (error) {
     console.log("Error: ",error.code, stderr);
   }
