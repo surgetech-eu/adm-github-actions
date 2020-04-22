@@ -33,6 +33,8 @@ else {
     var text = 'Status: ' + status + '\nMessage: ' + message
 }
 
+console.log("********************", subject, "***", text)
+
 var payload = `payload='{\"channel\":\"${channel}\",
     \"username\":\"${username}\",
     \"attachments\":[{\"fallback\":\"${subject}\", \"title\":\"${subject}\", \"text\":\"${text}\", \"color\":\"${color}\"}],
