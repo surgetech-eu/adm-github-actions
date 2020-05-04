@@ -40,6 +40,10 @@ if (config.type == 'java-lib') {
         }
     });
 
+} else if (config.type == 'npm-package') {
+    // Checking npm registry
+    console.log("This has to be done later");
+
 } else {
     // Wtf
     console.log(`::set-output name=message::unknown artifact type`)
