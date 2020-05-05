@@ -36,6 +36,7 @@ if (config.type == 'java-lib') {
                     throw new Error("Problem: tag already exists");
                 }
             }
+        console.log(`::set-output name=repo::${config.repo}`)
         console.log("Tag is new, ok to continue");
         }
     });
