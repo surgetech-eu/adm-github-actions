@@ -3,8 +3,6 @@ description: 'Checks that tag does not already exists in repo. Exports tag for n
 runs:
   using: 'node12'
   main: 'index.js'
-outputs:
-
-
-  tag:
-  message:
+#outputs:
+#  tag:
+#  message:
