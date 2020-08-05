@@ -4,5 +4,7 @@ runs:
   using: 'node12'
   main: 'index.js'
 outputs:
-  tag: ''       # tag we are going to build
-  message: ''   # error message
+
+
+  tag:
+  message:
