@@ -1,0 +1,10 @@
+name: 'CI tag check gradle'
+description: 'Checks that library does not already exists in repo. Exports tag for notifier'
+runs:
+  using: 'node12'
+  main: 'index.js'
+outputs:
+  tag:
+    description: 'tag we are going to build'
+  repo:
+    description: 'repository name'
