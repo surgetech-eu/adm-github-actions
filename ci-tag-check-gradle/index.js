@@ -13,7 +13,7 @@ function getValueByKey(text, key){
 }
 
 // get tag from gradle version
-var path = process.env.WORKSPACE + '/build.gradle'
+var path = process.env.GITHUB_WORKSPACE + '/build.gradle'
 var raw = fs.readFileSync(path, 'utf8')
 var tag = getValueByKey(raw, "version")
 
@@ -22,7 +22,7 @@ var group_dots = getValueByKey(raw, "group")
 var group_slashes = group_dots.replace(/\./gm,'\/')
 
 // get repo name from gradle project name
-path = process.env.WORKSPACE + '/settings.gradle'
+path = process.env.GITHUB_WORKSPACE + '/settings.gradle'
 raw = fs.readFileSync(path, 'utf8')
 var name = getValueByKey(raw, "rootProject.name")
 
