@@ -13,13 +13,13 @@ var subject = process.env.SUBJECT || 'Something wrong'
 var message = process.env.MESSAGE || ''
 
 switch (status) {
-    case 'Started':
+    case 'started':
         var color = '#546E7A'
         break
-    case 'Failure':
+    case 'failure':
         var color = '#F44336'
         break
-    case 'Success':
+    case 'success':
         var color = '#4CAF50'
         break
     default:
@@ -28,10 +28,10 @@ switch (status) {
 }
 
 if (message == '') {
-    var text = 'Status: ' + status
+    var text = 'status: ' + status
 }
 else {
-    var text = 'Status: ' + status + '\nMessage: ' + message
+    var text = 'status: ' + status + '\nmessage: ' + message
 }
 
 var payload = `payload='{\"channel\":\"${channel}\",
