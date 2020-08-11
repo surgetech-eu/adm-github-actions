@@ -27,8 +27,10 @@ raw = fs.readFileSync(path, 'utf8')
 var name = getValueByKey(raw, "rootProject.name")
 
 // set github workflow output
+var branch = process.env.github.ref
 console.log(`::set-output name=tag::${tag}`)
 console.log(`::set-output name=repo::${name}`)
+console.log(`::set-output name=branch::${branch}`)
 
 // we are working on java library - checking S3 bucket
 const s3 = new AWS.S3();
