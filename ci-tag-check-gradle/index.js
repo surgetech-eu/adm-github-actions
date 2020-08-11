@@ -27,7 +27,7 @@ raw = fs.readFileSync(path, 'utf8')
 var name = getValueByKey(raw, "rootProject.name")
 
 // set github workflow output
-var branch = process.env.github.ref
+var branch = process.env.GITHUB_REF
 console.log(`::set-output name=tag::${tag}`)
 console.log(`::set-output name=repo::${name}`)
 console.log(`::set-output name=branch::${branch}`)
