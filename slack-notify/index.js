@@ -8,8 +8,8 @@ if (url === null){
 var username = 'CI'
 var emoji = ':ghost:'
 var channel = process.env.CHANNEL || 'dev-ci'
-var status  = process.env.STATUS  || 'Unknown'
-var subject = process.env.SUBJECT || 'Something wrong'
+var status  = process.env.STATUS  || 'unknown'
+var subject = process.env.SUBJECT || 'something wrong'
 var message = process.env.MESSAGE || ''
 
 switch (status) {
@@ -31,7 +31,7 @@ if (message == '') {
     var text = 'status: ' + status
 }
 else {
-    var text = 'status: ' + status + '\nmessage: ' + message
+    var text = 'status: ' + status + '\n' + message
 }
 
 var payload = `payload='{\"channel\":\"${channel}\",
