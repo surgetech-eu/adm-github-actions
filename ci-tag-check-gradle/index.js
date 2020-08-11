@@ -26,8 +26,10 @@ path = process.env.WORKSPACE + '/settings.gradle'
 raw = fs.readFileSync(path, 'utf8')
 var name = getValueByKey(raw, "rootProject.name")
 
+// get short branch name
+var branch = process.env.GITHUB_REF.replace(/refs\/heads\//gm,'')
+
 // set github workflow output
-var branch = process.env.GITHUB_REF
 console.log(`::set-output name=tag::${tag}`)
 console.log(`::set-output name=repo::${name}`)
 console.log(`::set-output name=branch::${branch}`)
