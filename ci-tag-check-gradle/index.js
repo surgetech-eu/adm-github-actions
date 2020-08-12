@@ -24,20 +24,20 @@ var group_slashes = group_dots.replace(/\./gm,'\/')
 // get repo name from gradle project name
 path = process.env.GITHUB_WORKSPACE + '/settings.gradle'
 raw = fs.readFileSync(path, 'utf8')
-var name = getValueByKey(raw, "rootProject.name")
+var repo = getValueByKey(raw, "rootProject.name")
 
 // get short branch name
 var branch = process.env.GITHUB_REF.replace(/refs\/heads\//gm,'')
 
 // set github workflow output
 console.log(`::set-output name=tag::${tag}`)
-console.log(`::set-output name=repo::${name}`)
+console.log(`::set-output name=repo::${repo}`)
 console.log(`::set-output name=branch::${branch}`)
 
 // we are working on java library - checking S3 bucket
 const s3 = new AWS.S3();
 const Bucket = "surge-dev-packages";
-const Prefix = "java/release/" + group_slashes + "/" + name + "/" + tag;
+const Prefix = "java/release/" + group_slashes + "/" + repo + "/" + tag;
 const MaxKeys = 1; // if a single object is found, the folder exists.
 const params = { Bucket, Prefix, MaxKeys };
 

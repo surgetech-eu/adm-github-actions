@@ -8,3 +8,5 @@ outputs:
     description: 'tag we are going to build'
   repo:
     description: 'repository name'
+  branch:
+    description: 'short branch name'
