@@ -1,0 +1,12 @@
+name: 'CI tag check docker'
+description: 'Checks that dockerimage does not already exists in AWS ECR repo. Exports tag for notifier'
+runs:
+  using: 'node12'
+  main: 'index.js'
+outputs:
+  tag:
+    description: 'tag we are going to build'
+  repo:
+    description: 'repository name'
+  branch:
+    description: 'short branch name'
