@@ -1,4 +1,4 @@
-const config = require(process.env.WORKSPACE + '/package.json')
+const config = require(process.env.GITHUB_WORKSPACE + '/package.json')
 
 // get short branch name
 var branch = process.env.GITHUB_REF.replace(/refs\/heads\//gm,'')
