@@ -13,6 +13,10 @@ console.log(`::set-output name=branch::${branch}`)
 var cmd = `npm view ${config.name} versions --json`
 exec(cmd, function(error, stdout, stderr) {
     if (error) {
+        console.log(cmd)
+        console.log(stdout)
+        console.log(stderr)
+        console.log(error)
         console.log(`::set-output name=message::internal error in tag checker`)
         throw new Error(error.code, stderr);
     }
