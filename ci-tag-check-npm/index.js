@@ -19,11 +19,13 @@ exec(cmd, function(error, stdout, stderr) {
         throw new Error(error.code);
     }
 
-    let tags = JSON.parse(stdout);
-    for (let tag of tags){
-        if (tag == config.version) {
-            console.log(`::set-output name=message::tag already exists`)
-            throw new Error("tag already exists");
+    if (stdout.length > 0) {
+        let tags = JSON.parse(stdout);
+        for (let tag of tags){
+            if (tag == config.version) {
+                console.log(`::set-output name=message::tag already exists`)
+                throw new Error("tag already exists");
+            }
         }
     }
     console.log("tag is new, ok to continue");
