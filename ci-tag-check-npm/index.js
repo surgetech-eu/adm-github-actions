@@ -19,7 +19,7 @@ exec(cmd, function(error, stdout, stderr) {
 
     let tags = JSON.parse(stdout);
     for (let tag of tags){
-        if (tag == ${config.version}) {
+        if (tag == config.version) {
             console.log(`::set-output name=message::tag already exists`)
             throw new Error("tag already exists");
         }
