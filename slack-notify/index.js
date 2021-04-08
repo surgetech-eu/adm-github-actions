@@ -37,7 +37,7 @@ else {
 var payload = `payload='{\"channel\":\"${channel}\",
     \"username\":\"${username}\",
     \"attachments\":[{\"fallback\":\"${subject}\", \"title\":\"${subject}\", \"text\":\"${text}\", \"color\":\"${color}\"}],
-    \"icon_emoji\":\"${emoji}\"},'`
+    \"icon_emoji\":\"${emoji}\"}'`
 
 var cmd = `curl -sm 5 --data-urlencode ${payload} ${url}`
 
